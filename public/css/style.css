@@ -85,6 +85,7 @@ a:hover {
 .cube img {
     height: 100%;
     width: 100%;
+    -webkit-border-radius: 10px;
 }
 .cube.in {
     -webkit-animation-name: cubeInFromRight;
