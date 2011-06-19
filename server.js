@@ -63,14 +63,16 @@ function update_public_timeline() {
 					if(buffer_statuses.length === 0) {
 						buffer_statuses = image_statues;
 					} else {
-						for(var i = image_statues.length - 1; i < 0; i--) {
+						for(var i = image_statues.length - 1; i > 0; i--) {
 							if(buffer_statuses.length >= 20) {
 								buffer_statuses.pop();
 								buffer_statuses.unshift(image_statues[i]);
 							}
 						}
 					}
-					socket_server.broadcast({type: 'newStatus', statuses: image_statues});
+					if(image_statues.length > 0) {
+						socket_server.broadcast({type: 'newStatus', statuses: image_statues.slice(0, 5)});
+					}
 				}
 			}
 		});

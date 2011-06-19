@@ -70,45 +70,8 @@ a:hover {
     font-size: .625em; /* 10/16 */
 }
 
-.container.animating {
-    -webkit-transform: translateZ(-10em);
-    -webkit-transform-style: preserve-3d;
-    z-index: -100;
-}
-
-.in, .out {
-    -webkit-animation-duration: .75s;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-transform-origin: 50% 50% -10em;
-    -webkit-backface-visibility: hidden;
-}
 .cube img {
     height: 100%;
     width: 100%;
     -webkit-border-radius: 10px;
 }
-.cube.in {
-    -webkit-animation-name: cubeInFromRight;
-}
-
-.cube.out {
-    -webkit-animation-name: cubeOutToLeft;
-}
-
-@-webkit-keyframes cubeInFromRight {
-    from { -webkit-transform: rotateX(90deg);
-    }
-
-    to {
-        -webkit-transform: rotateX(0deg);
-    }
-}
-@-webkit-keyframes cubeOutToLeft {
-    from { -webkit-transform: rotateX(0deg);
-    }
-
-    to {
-        -webkit-transform: rotateX(-90deg);
-    }
-}
-
