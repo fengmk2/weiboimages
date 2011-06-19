@@ -3,7 +3,7 @@
  */
 
 var debug = exports.debug = true;
-exports.port = debug ? 8080 : 80;
+exports.port = debug ? 8888 : 80;
 
 var tapi = exports.tapi = require('weibo').tapi;
 

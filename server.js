@@ -42,6 +42,9 @@ function update_public_timeline() {
 						if(status.thumbnail_pic) {
 							image_statues.push(status);
 						}
+						if(image_statues.length === 20) {
+							break;
+						}
 					}
 					if(buffer_statuses.length === 0) {
 						buffer_statuses = image_statues;

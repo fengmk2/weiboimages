@@ -26,7 +26,7 @@ a:hover {
 /* @group Cubes */
 
 #wrapper {
-    height: 600px;
+    height: 800px;
     width: 1000px;
     -webkit-perspective: 800;
     background: #000;
