@@ -18,15 +18,29 @@ var app = express.createServer()
   , socket_server = io.listen(app)
   , buffer_statuses = [];
 
-// websocket
+// app config
+app.use(express.logger());
+app.use(express.bodyParser());
+app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'html');
+app.register('html', require('ejs'));
+
+// url mapping
+app.get('/', function index(req, res){
+	res.render('index', {statuses: buffer_statuses.slice(0, 20)});
+});
+
+app.listen(config.port);
+
+// websocket handler
 socket_server.on('connection', function(client) {
 	//client.broadcast({ announcement: client.sessionId + ' connected' });
 //	if(buffer_statuses.length > 0) {
 //		client.send({type: 'newStatus', statuses: buffer_statuses});
 //	}
-	client.on('disconnect', function(){
-	    client.broadcast({ announcement: client.sessionId + ' disconnected' });
-	});
+//	client.on('disconnect', function(){
+//	    client.broadcast({ announcement: client.sessionId + ' disconnected' });
+//	});
 });
 
 function update_public_timeline() {
@@ -66,16 +80,3 @@ function update_public_timeline() {
 // check public timeline
 setInterval(update_public_timeline, 10000);
 update_public_timeline();
-
-app.use(express.logger());
-app.use(express.bodyParser());
-app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'html');
-app.register('html', require('ejs'));
-
-// mapping
-app.get('/', function index(req, res){
-	res.render('index', {statuses: buffer_statuses.slice(0, 20)});
-});
-
-app.listen(config.port);
