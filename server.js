@@ -82,3 +82,9 @@ function update_public_timeline() {
 // check public timeline
 setInterval(update_public_timeline, 10000);
 update_public_timeline();
+
+//catch all exception
+process.on('uncaughtException', function (err) {
+	console.error('Uncaught exception: ' + err);
+	console.error(err.stack);
+});
