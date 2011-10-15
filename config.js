@@ -7,7 +7,11 @@ exports.port = debug ? 8888 : 80;
 
 var tapi = exports.tapi = require('weibo').tapi;
 
-tapi.init('tsina', '3434422667', '523f2d0d134bfd5aa138f9e5af828bf9');
-tapi.init('tqq', 'b6d893a83bd54e598b5a7c359599190a', '34ad78be42426de26e5c4b445843bb78');
+tapi.init('tsina', '4010445928', 'd119f62bfb70a4ba8d9b68bf14d6e45a');
 
-exports.t_users = [{blogtype: 'tsina'}, {blogtype: 'tqq'}];
+exports.t_users = [{ 
+    blogtype: 'tsina',
+    oauth_token_key: '25c0dbf4fc42f5e1a309e3f796c558f5',
+    oauth_token_secret: '19b7a8ba9437858fd04d08d7226fb265',
+    authtype: 'oauth'
+}];
